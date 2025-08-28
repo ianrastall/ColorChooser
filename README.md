@@ -13,6 +13,10 @@ ColorChooser is a lightweight, user-friendly desktop utility for Windows designe
 
 -----
 
+![ColorChooser Application Screenshot](Screenshot.png)
+
+-----
+
 ## Requirements
 
 The pre-compiled application is designed to run on **64-bit Windows (Windows 10 and newer)**.
