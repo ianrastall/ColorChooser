@@ -32,4 +32,4 @@ jobs:
       with:
         name: ColorChooser-Release-SingleFile
         # The output path is now different! Find the exact path in your project's bin folder.
-        path: ColorChooser/bin/Release/net8.0-windows/win-x64/publish/
+        path: bin/Release/net8.0-windows/win-x64/publish/
