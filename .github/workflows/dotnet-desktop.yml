@@ -1,0 +1,35 @@
+name: Build and Publish .NET Application
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 8.0.19
+
+    - name: Restore dependencies
+      run: dotnet restore ColorChooser.sln
+
+    # This is the new, improved step to create a single .exe for distribution
+    - name: Publish application
+      run: dotnet publish ColorChooser.sln -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true -p:EnableCompressionInSingleFile=true
+
+    # The path MUST be updated to point to the 'publish' directory
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: ColorChooser-Release-SingleFile
+        # The output path is now different! Find the exact path in your project's bin folder.
+        path: ColorChooser/bin/Release/net8.0-windows/win-x64/publish/
