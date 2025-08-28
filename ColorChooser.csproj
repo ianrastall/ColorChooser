@@ -9,7 +9,7 @@
     <UseWindowsForms>true</UseWindowsForms>
     <EnableDefaultItems>true</EnableDefaultItems>
     <EnablePriGeneration>false</EnablePriGeneration>
-    <Platforms>AnyCPU;x64</Platforms>
+    <Platforms>x64</Platforms>
     
     <!-- Assembly metadata -->
     <AssemblyTitle>Color Chooser</AssemblyTitle>
